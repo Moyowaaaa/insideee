@@ -1,0 +1,39 @@
+.reviewCard {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  padding: 0.625rem 1.25rem;
+  background-color: #f0f0f0;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__top-section {
+    width: 100%;
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      color: #333;
+
+      font-family: "Amatic SC";
+      font-size: 1.5rem;
+    }
+
+    &--ratings-container {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__bottom-section {
+    font-family: "Poppins", serif;
+    color: #333;
+    font-size: 0.813rem;
+    font-weight: 400;
+  }
+}

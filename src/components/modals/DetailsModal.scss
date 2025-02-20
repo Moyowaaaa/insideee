@@ -1,0 +1,158 @@
+.modal {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -5;
+  }
+
+  &__content-container {
+    height: 90vh;
+    background-color: white;
+    z-index: 10;
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+    border-radius: 0.75rem;
+    position: relative;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.813rem;
+
+    &--title-container {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: start;
+
+      &__title {
+        display: flex;
+        gap: 0.563rem;
+        align-items: center;
+
+        h1 {
+          font-size: 2.813rem;
+          margin: 0;
+        }
+        img {
+          height: 3.75rem;
+          width: 3.75rem;
+        }
+      }
+
+      &__close-button {
+        top: 1.25rem;
+        right: 2.5rem;
+        padding: 0.8rem;
+        background: #f0f0f0;
+        border-radius: 0.75rem;
+
+        svg {
+          height: 1.375rem;
+          width: 1.375rem;
+        }
+      }
+    }
+
+    &--details-container {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: space-between;
+
+      &__main-image-container {
+        height: 95%;
+        width: 26rem;
+        position: relative;
+
+        div {
+          height: 100%;
+          width: 100%;
+          position: absolute;
+
+          &:nth-child(1) {
+            height: 32rem;
+            width: 92%;
+            background-color: #d9d9d9;
+            z-index: 2;
+            bottom: 2rem;
+            border-radius: 0.938rem;
+          }
+
+          &:nth-child(2) {
+            background-color: #b4b4b4;
+            z-index: 1;
+            width: 95%;
+            height: 28.313rem;
+            bottom: 3rem;
+            border-radius: 0.938rem;
+          }
+
+          &:nth-child(3) {
+            height: 100%;
+            width: 90%;
+            z-index: 3;
+            background-color: red;
+            bottom: 0;
+            border-radius: 0.938rem;
+
+            img {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+              border-radius: 1rem;
+            }
+          }
+        }
+      }
+
+      &__other-images-container {
+        height: 95%;
+        width: 26rem;
+        position: relative;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 1rem;
+        }
+
+        div {
+          position: absolute;
+          bottom: 4rem;
+          width: 80%;
+          margin: 0 10%;
+        }
+      }
+
+      &__reviews-container {
+        display: flex;
+        height: 95%;
+        overflow-y: auto;
+        flex-direction: column;
+        width: 30rem;
+        position: relative;
+        max-height: 38rem;
+        gap: 0.825rem;
+      }
+    }
+  }
+}

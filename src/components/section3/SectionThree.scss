@@ -1,0 +1,36 @@
+.sectionThree{
+    width: 100%;
+    height: 100vh;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+
+.sectionThree-box{
+    width: 80%;
+    margin-top: 5%;;
+    display:flex;
+    justify-content:space-between;
+
+
+    &__box1{
+        width: 20rem;
+        height: 20rem;
+        background-color: black;
+    }
+
+    &__box2{
+        width: 20rem;
+        height: 20rem;
+        background-color: blue;
+    }
+
+    &__box3{
+        width: 20rem;
+        height: 20rem;
+        background-color: teal;
+    }
+}

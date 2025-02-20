@@ -1,0 +1,49 @@
+.card-section {
+  width: 100%;
+  width: 100%;
+  max-width: 85rem;
+  position: absolute;
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__first-dash {
+    position: absolute;
+    top: 8rem;
+    left: 20rem;
+
+    svg {
+      width: 20.25rem;
+      height: 1.5rem;
+    }
+
+    img {
+      position: absolute;
+      left: 5rem;
+      bottom: 1rem;
+      width: 3.625rem;
+    }
+  }
+
+  &__second-dash {
+    position: absolute;
+    top: 8rem;
+    right: 20rem;
+
+    svg {
+      width: 20.25rem;
+      height: 1.5rem;
+    }
+
+    img {
+      position: absolute;
+      right: 5rem;
+      bottom: 1rem;
+      width: 3.625rem;
+    }
+  }
+}

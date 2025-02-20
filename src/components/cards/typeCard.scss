@@ -1,0 +1,99 @@
+.type-card {
+  height: max-content;
+  width: 21.625rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+
+  &__card {
+    height: 13.78rem;
+    position: relative;
+
+    &--div {
+      height: 100%;
+      width: 100%;
+      border-radius: 1rem;
+      position: absolute;
+      top: 0;
+
+      &:nth-child(1) {
+        rotate: -12deg;
+        background-color: #d9d9d9;
+
+        z-index: 1;
+      }
+
+      &:nth-child(2) {
+        background-color: #b4b4b4;
+        z-index: 2;
+        transform: rotate(16.122deg);
+      }
+
+      &:nth-child(3) {
+        background-color: transparent;
+        z-index: 3;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 1rem;
+        }
+      }
+
+      &:nth-child(4) {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          height: 5.625rem;
+          width: 5.625rem;
+        }
+      }
+    }
+
+    // img {
+    //   height: 100%;
+    //   width: 100%;
+    //   object-fit: cover;
+    //   position: absolute;
+    //   top: 0;
+
+    //   &:nth-child(2) {
+    //   }
+    // }
+  }
+
+  &__desc-container {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    height: max-content;
+    border-radius: 0.5rem;
+    background-color: #f0f0f0;
+    margin: auto;
+
+    display: inline-flex;
+    height: 2.75rem;
+    padding: 0 0.313rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+
+    svg {
+      height: 1.125rem;
+      width: 1.125rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      color: #333;
+    }
+  }
+}
