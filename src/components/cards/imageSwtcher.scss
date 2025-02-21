@@ -1,0 +1,19 @@
+.place-details-container__bottom-section {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  gap: 1.125rem;
+  height: max-content !important;
+  justify-content: space-between;
+
+  div {
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    background: #f0f0f0;
+
+    svg {
+      height: 0.875rem;
+      width: 0.875rem;
+    }
+  }
+}

@@ -79,53 +79,49 @@
 
       &__main-image-container {
         height: 95%;
-        width: 26rem;
+        width: 28rem;
         position: relative;
 
-        div {
-          height: 100%;
-          width: 100%;
+        &--shadow1 {
+          height: 32rem;
+          width: 92%;
+          background-color: #d9d9d9;
+          z-index: -1 !important;
+          bottom: 2rem;
+          border-radius: 0.938rem;
           position: absolute;
+        }
 
-          &:nth-child(1) {
-            height: 32rem;
-            width: 92%;
-            background-color: #d9d9d9;
-            z-index: 2;
-            bottom: 2rem;
-            border-radius: 0.938rem;
-          }
+        &--shadow2 {
+          background-color: #b4b4b4;
+          z-index: -2 !important;
+          width: 95%;
+          height: 28.313rem;
+          bottom: 3rem;
+          border-radius: 0.938rem;
+          position: absolute;
+        }
 
-          &:nth-child(2) {
-            background-color: #b4b4b4;
-            z-index: 1;
-            width: 95%;
-            height: 28.313rem;
-            bottom: 3rem;
-            border-radius: 0.938rem;
-          }
+        &--image {
+          height: 100%;
+          width: 90%;
+          z-index: 2 !important;
 
-          &:nth-child(3) {
+          bottom: 0;
+          border-radius: 0.938rem;
+
+          img {
             height: 100%;
-            width: 90%;
-            z-index: 3;
-            background-color: red;
-            bottom: 0;
-            border-radius: 0.938rem;
-
-            img {
-              height: 100%;
-              width: 100%;
-              object-fit: cover;
-              border-radius: 1rem;
-            }
+            width: 100%;
+            object-fit: cover;
+            border-radius: 1rem;
           }
         }
       }
 
       &__other-images-container {
         height: 95%;
-        width: 26rem;
+        width: 24rem;
         position: relative;
 
         img {
@@ -140,6 +136,11 @@
           bottom: 4rem;
           width: 80%;
           margin: 0 10%;
+          border: 2px solid red;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
         }
       }
 
