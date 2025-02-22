@@ -92,6 +92,8 @@ const DetailsModal = ({
     return [];
   }, [processedImages]);
 
+  if (!locationDetails) return null;
+
   return (
     <>
       <div className="modal">
@@ -123,76 +125,71 @@ const DetailsModal = ({
               </svg>
             </div>
           </div>
-          {!locationDetails ? (
-            <ModalEmptyState />
-          ) : (
-            <div className="modal__content-container--details-container">
-              <div className="modal__content-container--details-container__main-image-container">
-                {isFetching ? (
-                  <SkeletonLoader />
-                ) : (
-                  <>
-                    {/* <div className="modal__content-container--details-container__main-image-container--shadow1"></div>
+
+          <div className="modal__content-container--details-container">
+            <div className="modal__content-container--details-container__main-image-container">
+              {isFetching ? (
+                <SkeletonLoader />
+              ) : (
+                <>
+                  {/* <div className="modal__content-container--details-container__main-image-container--shadow1"></div>
                     <div className="modal__content-container--details-container__main-image-container--shadow2"></div> */}
 
-                    <div className="modal__content-container--details-container__main-image-container--image">
-                      <img src={processedImages[0]} alt="" />
-                    </div>
-                    <PlaceDetailsCard />
-                  </>
-                )}
-              </div>
-
-              <div className="modal__content-container--details-container__other-images-container">
-                {isFetching ? (
-                  <SkeletonLoader width={"22rem"} />
-                ) : locationDetails.photos &&
-                  locationDetails.photos.length > 0 ? (
-                  <React.Fragment>
-                    <CustomImageRenderer
-                      image={
-                        secondaryImages[currentLocationImageIndex] as string
-                      }
-                      alt=""
-                    />
-
-                    <Swiper
-                      currentIndex={currentLocationImageIndex}
-                      setCurrentIndex={setCurrentLocationImageIndex}
-                      itemCount={locationDetails.photos.length}
-                    />
-                  </React.Fragment>
-                ) : (
-                  <EmptyState message="No images available for this location." />
-                )}
-              </div>
-
-              <div className="modal__content-container--details-container__reviews-container">
-                {isFetching ? (
-                  <>
-                    <SkeletonLoader height={"10rem"} />
-                    <SkeletonLoader height={"7rem"} />
-                    <SkeletonLoader height={"2rem"} />
-                  </>
-                ) : (
-                  <React.Fragment>
-                    {!locationDetails.reviews?.length ? (
-                      <EmptyState message="No Reviews Found here :/" />
-                    ) : (
-                      <React.Fragment>
-                        {locationDetails.reviews?.map((review, index) => (
-                          <ReviewCard
-                            key={index}
-                            review={review as Partial<Review>}
-                          />
-                        ))}
-                      </React.Fragment>
-                    )}
-                  </React.Fragment>
-                )}
-              </div>
+                  <div className="modal__content-container--details-container__main-image-container--image">
+                    <img src={processedImages[0]} alt="" />
+                  </div>
+                  <PlaceDetailsCard />
+                </>
+              )}
             </div>
-          )}
+
+            <div className="modal__content-container--details-container__other-images-container">
+              {isFetching ? (
+                <SkeletonLoader width={"22rem"} />
+              ) : locationDetails.photos &&
+                locationDetails.photos.length > 0 ? (
+                <React.Fragment>
+                  <CustomImageRenderer
+                    image={secondaryImages[currentLocationImageIndex] as string}
+                    alt=""
+                  />
+
+                  <Swiper
+                    currentIndex={currentLocationImageIndex}
+                    setCurrentIndex={setCurrentLocationImageIndex}
+                    itemCount={locationDetails.photos.length}
+                  />
+                </React.Fragment>
+              ) : (
+                <EmptyState message="No images available for this location." />
+              )}
+            </div>
+
+            <div className="modal__content-container--details-container__reviews-container">
+              {isFetching ? (
+                <>
+                  <SkeletonLoader height={"10rem"} />
+                  <SkeletonLoader height={"7rem"} />
+                  <SkeletonLoader height={"2rem"} />
+                </>
+              ) : (
+                <React.Fragment>
+                  {!locationDetails.reviews?.length ? (
+                    <EmptyState message="No Reviews Found here :/" />
+                  ) : (
+                    <React.Fragment>
+                      {locationDetails.reviews?.map((review, index) => (
+                        <ReviewCard
+                          key={index}
+                          review={review as Partial<Review>}
+                        />
+                      ))}
+                    </React.Fragment>
+                  )}
+                </React.Fragment>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </>
