@@ -1,0 +1,49 @@
+.custom-image-renderer {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  bottom: 0 !important;
+  min-width: 24rem !important;
+  left: -2.5rem !important;
+  border-radius: 1rem;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 2;
+    border-radius: 1rem;
+  }
+
+  &__skeleton-loader {
+    height: 100%;
+    min-width: 22rem;
+    position: absolute;
+    bottom: 0 !important;
+    z-index: -2 !important;
+    display: flex;
+    flex-direction: column;
+    background-color: #d9d9d9;
+  }
+}
+
+.loading-strip {
+  width: 50%;
+  height: 1.5rem;
+  background: linear-gradient(90deg, #e7e7e7 25%, #e0e0e0 50%, #e7e7e7 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+
+  &:nth-child(2) {
+    width: 40%;
+  }
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

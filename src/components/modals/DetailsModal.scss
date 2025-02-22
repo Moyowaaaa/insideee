@@ -106,7 +106,7 @@
           height: 100%;
           width: 90%;
           z-index: 2 !important;
-
+          position: relative;
           bottom: 0;
           border-radius: 0.938rem;
 
@@ -115,6 +115,7 @@
             width: 100%;
             object-fit: cover;
             border-radius: 1rem;
+            position: absolute;
           }
         }
       }
@@ -124,19 +125,18 @@
         width: 24rem;
         position: relative;
 
-        img {
-          height: 100%;
-          width: 100%;
-          object-fit: cover;
-          border-radius: 1rem;
-        }
+        // img {
+        //   height: 100%;
+        //   width: 100%;
+        //   object-fit: cover;
+        //   border-radius: 1rem;
+        // }
 
         div {
           position: absolute;
           bottom: 4rem;
           width: 80%;
           margin: 0 10%;
-          border: 2px solid red;
           display: flex;
           flex-direction: row;
           align-items: center;

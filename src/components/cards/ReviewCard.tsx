@@ -1,38 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ReviewCard.scss";
-import { review } from "../../constants/types";
+import { Place, Review, review } from "../../constants/types";
+import { StarIcon } from "../skeletons/StarIcon";
 
-const ReviewCard = ({ review }: { review: review }) => {
+const ReviewCard = ({ review }: { review: Partial<Review> }) => {
+  const ratingCount = review.rating;
+  const roundedRating = Math.round(ratingCount as number);
+  const [expand, setExpand] = useState<boolean>(false);
+
   return (
     <>
       <div className="reviewCard">
         <div className="reviewCard__top-section">
-          <p>{review.author}</p>
+          <p>{review.authorAttribution?.displayName}</p>
 
           <div className="reviewCard__top-section--ratings-container">
-            <p>{review?.starRating} / 5</p>
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="17"
-              height="18"
-              viewBox="0 0 17 18"
-              fill="none"
-            >
-              <path
-                d="M7.99184 2.94611C8.1551 2.61536 8.23673 2.44999 8.34755 2.39715C8.44396 2.35118 8.55598 2.35118 8.6524 2.39715C8.76322 2.44999 8.84484 2.61536 9.00811 2.94611L10.557 6.084C10.6052 6.18165 10.6293 6.23047 10.6645 6.26838C10.6957 6.30194 10.7331 6.32913 10.7746 6.34845C10.8216 6.37027 10.8754 6.37814 10.9832 6.39389L14.4478 6.9003C14.8127 6.95363 14.9951 6.98029 15.0795 7.0694C15.153 7.14693 15.1875 7.25347 15.1735 7.35935C15.1575 7.48104 15.0254 7.60968 14.7613 7.86695L12.2552 10.3079C12.177 10.384 12.138 10.422 12.1128 10.4673C12.0904 10.5074 12.0761 10.5514 12.0706 10.597C12.0644 10.6484 12.0736 10.7021 12.092 10.8096L12.6833 14.2573C12.7457 14.621 12.7769 14.8028 12.7183 14.9107C12.6673 15.0046 12.5767 15.0704 12.4716 15.0899C12.3509 15.1123 12.1876 15.0264 11.8611 14.8547L8.76373 13.2258C8.66722 13.1751 8.61897 13.1497 8.56813 13.1397C8.52312 13.1309 8.47682 13.1309 8.43181 13.1397C8.38098 13.1497 8.33272 13.1751 8.23622 13.2258L5.13886 14.8547C4.81232 15.0264 4.64904 15.1123 4.52831 15.0899C4.42328 15.0704 4.33264 15.0046 4.28165 14.9107C4.22304 14.8028 4.25423 14.621 4.3166 14.2573L4.90792 10.8096C4.92636 10.7021 4.93557 10.6484 4.92934 10.597C4.92381 10.5514 4.9095 10.5074 4.88718 10.4673C4.86198 10.422 4.82291 10.384 4.74479 10.3079L2.23869 7.86695C1.97455 7.60968 1.84249 7.48104 1.82642 7.35935C1.81243 7.25347 1.84698 7.14693 1.92043 7.0694C2.00485 6.98029 2.18727 6.95363 2.55212 6.9003L6.01676 6.39389C6.12451 6.37814 6.17838 6.37027 6.2253 6.34845C6.26684 6.32913 6.30424 6.30194 6.33542 6.26838C6.37064 6.23047 6.39474 6.18165 6.44294 6.084L7.99184 2.94611Z"
-                fill="#FFAC33"
-                fill-opacity="0.980392"
-                stroke="#FFAC33"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+            <div>
+              {[...Array(5)].map((_, index) => (
+                <StarIcon key={index} filled={index < roundedRating} />
+              ))}
+            </div>
           </div>
         </div>
         <div className="reviewCard__bottom-section">
-          <p>{review.review}</p>
+          <p>{review.text}</p>
         </div>
       </div>
     </>

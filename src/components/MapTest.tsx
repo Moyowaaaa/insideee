@@ -48,7 +48,6 @@ export default function MapTest() {
       geocoder.geocode({ location: userLocation }, (results, status) => {
         if (status === google.maps.GeocoderStatus.OK && results?.length) {
           setLocationName(results[0].formatted_address);
-          console.log("📍 Current Location:", results[0].formatted_address);
         } else {
           console.error("Geocoder failed:", status);
         }
@@ -80,8 +79,6 @@ export default function MapTest() {
       const { places } = await Place.searchNearby(request);
 
       if (places.length) {
-        console.log("Nearby places:", places);
-
         const bounds = new LatLngBounds();
 
         places.forEach((place) => {
@@ -110,7 +107,6 @@ export default function MapTest() {
             lng: 3.374075,
           };
           setLocation(userLocation);
-          console.log({ userLocation });
           loadMap(userLocation).catch((error) =>
             console.error("Google Maps failed to load:", error)
           );

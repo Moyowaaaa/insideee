@@ -1,10 +1,13 @@
-.place-details-container__bottom-section {
+.item-swiper {
   width: 80%;
   display: flex;
   align-items: center;
   gap: 1.125rem;
   height: max-content !important;
-  justify-content: space-between;
+  justify-content: space-between !important;
+  position: absolute;
+  bottom: 2rem;
+  z-index: 5;
 
   button {
     padding: 0.5rem 0.75rem;
