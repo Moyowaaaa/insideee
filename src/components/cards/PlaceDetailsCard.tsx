@@ -1,17 +1,61 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import "./placeDetailsCard.scss";
 import ImageSwitcher from "./ImageSwitcher";
 import { locationContext } from "../../context/LocationContext";
 import { Place } from "../../constants/types";
 import { StatesContext } from "../../context/StatesContext";
 import { StarIcon } from "../skeletons/StarIcon";
+import { useGetDistance } from "../../hooks/useGetDisance";
+
+const getDistance = (
+  lat1: number,
+  lon1: number,
+  lat2: number,
+  lon2: number
+) => {
+  const toRadians = (deg: number) => (deg * Math.PI) / 180;
+
+  const R = 6371; // Radius of Earth in km
+  const dLat = toRadians(lat2 - lat1);
+  const dLon = toRadians(lon2 - lon1);
+
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRadians(lat1)) *
+      Math.cos(toRadians(lat2)) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
+
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c; // Distance in km
+};
 
 const PlaceDetailsCard = () => {
-  const { currentLocationIndex } = useContext(StatesContext);
+  const { currentLocationIndex, userLocation } = useContext(StatesContext);
   const { results } = useContext(locationContext);
   const details = results[currentLocationIndex] as any;
   const ratingCount = (results[currentLocationIndex] as Place)?.rating || 0;
   const roundedRating = Math.round(ratingCount);
+
+  // const placeLat = parseFloat(details?.location[0]);
+  // const placeLng = details?.geometry?.location;
+
+  // console.log([placeLat]);
+
+  // // Get user location
+  // const userLat = userLocation?.lat;
+  // const userLng = userLocation?.lng;
+
+  // // Calculate distance if all values exist
+  // const distance =
+  //   userLat !== undefined &&
+  //   userLng !== undefined &&
+  //   placeLat !== undefined &&
+  //   placeLng !== undefined
+  //     ? getDistance(userLat, userLng, placeLat, placeLng).toFixed(2) + " km"
+  //     : "Calculating...";
+
+  // console.log({ distance });
 
   return (
     <>
