@@ -5,7 +5,6 @@ import { locationContext } from "../../context/LocationContext";
 import { Place } from "../../constants/types";
 import { StatesContext } from "../../context/StatesContext";
 import { StarIcon } from "../skeletons/StarIcon";
-import { useGetDistance } from "../../hooks/useGetDisance";
 
 const getDistance = (
   lat1: number,
