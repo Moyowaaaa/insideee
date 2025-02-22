@@ -3,11 +3,9 @@ import { Loader } from "@googlemaps/js-api-loader";
 
 type Place = google.maps.places.PlaceResult;
 
-const apiKey = "AIzaSyAFSIlnC3AxCLdNb4RBU2b1BGdic8nBpCI";
-
 export default function MapTest() {
-  const API_KEY = "AIzaSyAFSIlnC3AxCLdNb4RBU2b1BGdic8nBpCI"; // 🔹 Replace this with your actual API key
-  const MAP_ID = "d0b93b3ace97b8af";
+  const API_KEY = import.meta.env.VITE_REACT_APP_GOOGLE_MAPS_API_KEY; // 🔹 Replace this with your actual API key
+  const MAP_ID = import.meta.env.VITE_REACT_APP_GOOGLE_MAP_ID;
   const mapRef = useRef<HTMLDivElement | null>(null);
   const [places, setPlaces] = useState<Place[]>([]);
   const [location, setLocation] = useState<{ lat: number; lng: number } | null>(

@@ -6,7 +6,7 @@ import Home from "./components/home/Home";
 import TopBar from "./components/topbar/TopBar";
 import { locationContext } from "./context/LocationContext";
 
-const apiKey = "AIzaSyAFSIlnC3AxCLdNb4RBU2b1BGdic8nBpCI";
+const apiKey = import.meta.env.VITE_REACT_APP_GOOGLE_MAPS_API_KEY;
 
 function App() {
   const { userLocation, setLocationName, setUserLocation } =
